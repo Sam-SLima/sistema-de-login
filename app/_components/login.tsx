@@ -27,6 +27,8 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
+  const [showPassword, setShowPassword] = React.useState(false);
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Card className="flex flex-col w-full max-w-md p-8">
@@ -39,8 +41,26 @@ const Login = () => {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
-            <Input type="email" placeholder="email" required />
-            <Input type="password" placeholder="senha" required />
+            <Input type="email" placeholder="teste@teste.com" required />
+            <div className="relative">
+              <Input type="password" placeholder="••••••••" required />
+              <Button
+                type="button"
+                variant="ghost"
+                className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                size="sm"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <EyeClosedIcon className="h-4 w-4 text-muted-foreground" />
+                ) : (
+                  <EyeIcon className="h-4 w-4 text-muted-foreground" />
+                )}
+                <span className="sr-only">
+                  {showPassword ? "Ocultar" : "Mostrar"}
+                </span>
+              </Button>
+            </div>
           </div>
           <CardAction>
             <Button variant="link">Esqueceu a senha?</Button>
