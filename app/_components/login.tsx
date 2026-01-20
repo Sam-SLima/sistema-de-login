@@ -68,7 +68,7 @@ const Login = () => {
             <div className="grid gap-4 mt-4">
               <div className="relative">
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   {...register("password")}
                 />
