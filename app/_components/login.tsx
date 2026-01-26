@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -41,6 +42,7 @@ const Login = () => {
     console.log("dados validos", data);
   };
 
+  const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
 
   return (
@@ -50,7 +52,9 @@ const Login = () => {
           <CardTitle>Login</CardTitle>
           <CardDescription>Entre com suas credenciais</CardDescription>
           <CardAction className="font-bold">
-            <Button variant="link">Cadastrar-se</Button>
+            <Button variant="link" onClick={() => router.push("/register")}>
+              Cadastrar-se
+            </Button>
           </CardAction>
         </CardHeader>
         <CardContent>
